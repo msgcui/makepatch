@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>com.msgcui.make-patch</id>
+    <name>Plugin display name here</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- 设置面板 -->
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable instance="com.msgcui.idea.plug.makepatch.config.MakePatchConfig"/>
+        <applicationService serviceImplementation="com.msgcui.idea.plug.makepatch.component.MakePatchState"
+                            serviceInterface="com.msgcui.idea.plug.makepatch.component.MakePatchState"/>
+    </extensions>
+
+    <actions>
+        <!-- 在右键菜单中添加action -->
+        <action id="MakePatch" class="com.msgcui.idea.plug.makepatch.action.MakePatchAction" text="MakePatch">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
