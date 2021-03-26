@@ -69,7 +69,7 @@ public class DefaultMakePatchService implements MakePatchService {
                             FileChannel inputChannel = null;
                             FileChannel outputChannel = null;
                             try {
-                                inputChannel = new FileInputStream(new File(buildFilePath)).getChannel();
+                                inputChannel = new FileInputStream(tempFile).getChannel();
                                 File targetFile = new File(targetFilePath);
                                 if(!targetFile.exists()){
                                     // 构造目录
