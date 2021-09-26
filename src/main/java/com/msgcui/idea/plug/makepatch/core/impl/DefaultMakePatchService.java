@@ -57,12 +57,12 @@ public class DefaultMakePatchService implements MakePatchService {
                 String dirPath = buildFilePath.substring(0, buildFilePath.lastIndexOf("/"));
                 String fileName = buildFilePath.substring(buildFilePath.lastIndexOf("/")+1, buildFilePath.lastIndexOf("."));
                 File dirFile = new File(dirPath);
-                // 获取该目录下所有的问题件
+                // 获取该目录下所有的文件
                 File[] files = dirFile.listFiles();
                 if(files != null && files.length > 0){
                     for(File tempFile : files){
                         String tempFileName = tempFile.getName();
-                        if(tempFileName.startsWith(fileName) || tempFileName.startsWith(fileName + "$")){
+                        if(tempFileName.equals(fileName) || tempFileName.startsWith(fileName + "$")){
                             String targetFilePath = (outputDir.endsWith("/") ? outputDir.substring(0,outputDir.lastIndexOf("/")) : outputDir) + getTargetFilePath(filePath,tempFileName);
                             srcFiles.append(filePath + "\r\n");
                             buildFiles.append(targetFilePath + "\r\n");
