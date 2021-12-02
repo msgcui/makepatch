@@ -62,7 +62,7 @@ public class DefaultMakePatchService implements MakePatchService {
                 if(files != null && files.length > 0){
                     for(File tempFile : files){
                         String tempFileName = tempFile.getName();
-                        if(tempFileName.equals(fileName) || tempFileName.startsWith(fileName + "$")){
+                        if(tempFileName.startsWith(fileName + ".") || tempFileName.startsWith(fileName + "$")){
                             String targetFilePath = (outputDir.endsWith("/") ? outputDir.substring(0,outputDir.lastIndexOf("/")) : outputDir) + getTargetFilePath(filePath,tempFileName);
                             srcFiles.append(filePath + "\r\n");
                             buildFiles.append(targetFilePath + "\r\n");
